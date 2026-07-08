@@ -147,3 +147,44 @@
         font-size:36px;
     }
 }
+/* ==========================
+   LOGIN MOBILE
+========================== */
+
+@media (max-width: 768px){
+
+    body{
+        padding:20px;
+    }
+
+    .login-container{
+        grid-template-columns:1fr;
+        max-width:420px;
+        min-height:auto;
+        border-radius:20px;
+        overflow:hidden;
+    }
+
+    /* Esconde toda a parte azul */
+
+    .login-banner{
+        display:none;
+    }
+
+    /* Faz o formulário ocupar tudo */
+
+    .login-form{
+        width:100%;
+        padding:40px 28px;
+        border-radius:20px;
+    }
+
+    .login-form h1{
+        font-size:38px;
+    }
+
+    .login-form p{
+        margin-bottom:30px;
+    }
+
+}
