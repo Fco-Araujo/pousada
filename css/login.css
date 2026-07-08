@@ -188,3 +188,54 @@
     }
 
 }
+/* ==========================
+   LOGIN MOBILE
+========================== */
+
+@media (max-width:768px){
+
+    body{
+        padding:0;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height:100vh;
+        background:#f3f6fb;
+    }
+
+    .login-container{
+        width:100%;
+        max-width:420px;
+        min-height:auto;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:transparent;
+        box-shadow:none;
+    }
+
+    /* Esconde o painel azul */
+
+    .login-banner{
+        display:none;
+    }
+
+    /* Card do login */
+
+    .login-form{
+        width:100%;
+        padding:35px 28px;
+        background:#fff;
+        border-radius:20px;
+        box-shadow:0 15px 40px rgba(0,0,0,.12);
+    }
+
+    .login-form h1{
+        font-size:36px;
+    }
+
+    .login-form p{
+        margin-bottom:28px;
+    }
+
+}
