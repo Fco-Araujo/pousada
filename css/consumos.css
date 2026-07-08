@@ -1,0 +1,147 @@
+/* =========================
+   CONSUMOS
+========================= */
+
+#tbodyProdutos td{
+    vertical-align:middle;
+}
+
+.table-container{
+    margin:0 35px 30px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    border:1px solid #eef2f7;
+    overflow:hidden;
+}
+
+.table-container table{
+    width:100%;
+}
+
+.table-container th{
+    padding:18px 24px;
+}
+
+.table-container td{
+    padding:18px 24px;
+}
+
+.produto-nome{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    font-weight:700;
+}
+
+.produto-icon{
+    width:42px;
+    height:42px;
+    min-width:42px;
+    border-radius:12px;
+    background:#eef4ff;
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.produto-actions{
+    display:flex;
+    gap:8px;
+}
+
+.produto-actions .btn-icon{
+    width:38px;
+    height:38px;
+    background:#f3f4f6;
+}
+
+.produto-actions .btn-icon:hover{
+    background:#e5e7eb;
+    color:var(--primary);
+}
+
+/* pesquisa melhor alinhada */
+
+.page-actions{
+    padding-top:28px;
+    padding-bottom:0;
+}
+
+.page-actions .search-box{
+    width:360px;
+}
+
+/* deixa a tabela mais bonita */
+
+tbody tr{
+    transition:.2s;
+}
+
+tbody tr:hover{
+    background:#f8fafc;
+}
+
+thead th{
+    background:#f8fafc;
+}
+
+/* status */
+
+.status{
+    min-width:72px;
+}
+
+/* responsivo */
+
+@media(max-width:900px){
+    .table-container{
+        margin:0 24px 30px;
+        overflow-x:auto;
+    }
+
+    .page-actions .search-box{
+        width:100%;
+    }
+}
+/* Espaço entre pesquisa e tabela */
+
+.page-actions{
+    margin:28px 35px 18px;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.search-box{
+    width:360px;
+}
+
+.section-spacing{
+    height:10px;
+}
+
+.table-container{
+    margin:0 35px 30px;
+}
+
+@media (max-width:768px){
+
+    .page-actions{
+        margin:20px;
+    }
+
+    .table-container{
+        margin:0 20px 20px;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .section-spacing{
+        height:6px;
+    }
+
+}

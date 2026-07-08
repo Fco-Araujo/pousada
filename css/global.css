@@ -1,0 +1,498 @@
+/* ==========================
+   GOOGLE FONTS
+========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
+}
+
+/* ==========================
+   VARIÁVEIS
+========================== */
+
+:root{
+
+    --primary:#2563eb;
+    --primary-hover:#1d4ed8;
+
+    --success:#16a34a;
+    --warning:#f59e0b;
+    --danger:#dc2626;
+
+    --background:#f5f7fb;
+
+    --white:#ffffff;
+
+    --text:#1f2937;
+
+    --text-light:#6b7280;
+
+    --border:#e5e7eb;
+
+    --shadow:0 8px 24px rgba(15,23,42,.06);
+
+    --radius:16px;
+
+}
+
+/* ==========================
+   LAYOUT
+========================== */
+
+.layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+.sidebar{
+
+    width:270px;
+
+    background:#ffffff;
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+}
+
+.logo{
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:0 25px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.logo i{
+
+    width:50px;
+
+    height:50px;
+
+    background:var(--primary);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:14px;
+
+    font-size:22px;
+
+}
+
+.logo h2{
+
+    font-size:19px;
+
+    font-weight:700;
+
+}
+
+.logo span{
+
+    color:var(--text-light);
+
+    font-size:13px;
+
+}
+
+/* ==========================
+   MENU
+========================== */
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:18px;
+
+    gap:6px;
+
+}
+
+.sidebar nav a{
+
+    text-decoration:none;
+
+    color:var(--text);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:14px 18px;
+
+    border-radius:12px;
+
+    transition:.25s;
+
+    font-weight:500;
+
+}
+
+.sidebar nav a:hover{
+
+    background:#eef4ff;
+
+    color:var(--primary);
+
+}
+
+.sidebar nav a.active{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+.sidebar nav a i{
+
+    width:20px;
+
+    text-align:center;
+
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.content{
+
+    margin-left:270px;
+
+    width:calc(100% - 270px);
+
+    min-height:100vh;
+
+}
+
+/* ==========================
+   TOPBAR
+========================== */
+
+.topbar{
+
+    height:90px;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.topbar h1{
+
+    font-size:30px;
+
+    margin-bottom:4px;
+
+}
+
+.topbar p{
+
+    color:var(--text-light);
+
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+main section{
+
+    padding:30px 35px 0;
+
+}
+
+/* ==========================
+   PAGE ACTIONS
+========================== */
+
+.page-actions{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+}
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+.search-box{
+
+    width:350px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 16px;
+
+    height:48px;
+
+}
+
+.search-box i{
+
+    color:#9ca3af;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    margin-left:12px;
+
+    font-size:15px;
+
+    background:transparent;
+
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    height:46px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    padding:0 15px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.2s;
+
+}
+
+textarea{
+
+    height:auto;
+
+    padding:15px;
+
+    resize:vertical;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:var(--primary);
+
+}
+
+/* ==========================
+   LABELS
+========================== */
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#374151;
+
+}
+
+/* ==========================
+   FORM
+========================== */
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+/* ==========================
+   TITULOS
+========================== */
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.section-title h2{
+
+    font-size:22px;
+
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:9px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#d1d5db;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f3f4f6;
+
+}
+.sidebar{
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar nav{
+    flex:1;
+}
+
+.sidebar-footer{
+    padding:20px;
+    border-top:1px solid #e5e7eb;
+}
+
+.btn-logout{
+    width:100%;
+    border:none;
+    background:#fff5f5;
+    color:#dc2626;
+    padding:14px 18px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.btn-logout:hover{
+    background:#dc2626;
+    color:#fff;
+}
+
+.btn-logout i{
+    font-size:16px;
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada Control - Consumos</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/consumos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-hotel"></i>
+
+                <div>
+                    <h2>Pousada Control</h2>
+                    <span>Painel Administrativo</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="quartos.html">
+                    <i class="fa-solid fa-bed"></i>
+                    Quartos
+                </a>
+
+                <a href="hospedagens.html">
+                    <i class="fa-solid fa-door-open"></i>
+                    Hospedagens
+                </a>
+
+                <a href="consumos.html">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    Consumos
+                </a>
+
+                <a href="historico.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Histórico
+                </a>
+
+                <a href="relatorios.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Relatórios
+                </a>
+                
+                <a href="usuarios.html">
+    <i class="fa-solid fa-users"></i>
+    Usuários
+</a>
+
+<a href="movimentacoes.html">
+    <i class="fa-solid fa-list-check"></i>
+    Movimentações
+
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
+                </a>
+
+            </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+    <button class="btn-logout" id="btnLogout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Sair
+
+    </button>
+
+</div>
+
+        </aside>
+
+        <main class="content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Consumos</h1>
+                    <p>Cadastre os produtos consumidos durante a hospedagem.</p>
+                </div>
+
+                <button class="btn-primary" id="btnNovoProduto">
+                    <i class="fa-solid fa-plus"></i>
+                    Novo Produto
+                </button>
+            </header>
+
+            <section class="cards">
+                <div class="card">
+                    <i class="fa-solid fa-box"></i>
+                    <h3>Total de Produtos</h3>
+                    <h2 id="cardProdutos">0</h2>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    <h3>Valor Médio</h3>
+                    <h2 id="cardValorMedio">R$ 0,00</h2>
+                </div>
+            </section>
+
+            <section class="page-actions consumos-actions">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="buscarProduto"
+                        placeholder="Pesquisar produto...">
+                </div>
+            </section>
+
+            <div class="table-container consumos-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Categoria</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tbodyProdutos"></tbody>
+                </table>
+            </div>
+
+        </main>
+
+    </div>
+
+    <div class="modal" id="modalProduto">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Novo Produto</h2>
+
+                <button class="btn-icon" id="btnFecharModalProduto">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="formProduto" class="form">
+
+                <input type="hidden" id="produtoId">
+
+                <div class="form-group">
+                    <label for="nomeProduto">Produto</label>
+
+                    <input
+                        type="text"
+                        id="nomeProduto"
+                        placeholder="Ex: Água Mineral"
+                        required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="categoriaProduto">Categoria</label>
+
+                        <select id="categoriaProduto">
+                            <option>Bebidas</option>
+                            <option>Alimentos</option>
+                            <option>Higiene</option>
+                            <option>Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="valorProduto">Valor</label>
+
+                        <input
+                            type="number"
+                            id="valorProduto"
+                            step="0.01"
+                            min="0"
+                            required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="statusProduto">Status</label>
+
+                    <select id="statusProduto">
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button
+                        type="button"
+                        class="btn-secondary">
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary">
+                        Salvar Produto
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/consumos.js"></script>
+
+</body>
+</html>

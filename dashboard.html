@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pousada Control - Dashboard</title>
+
+    <link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-hotel"></i>
+
+                <div>
+
+                    <h2>Pousada Control</h2>
+
+                    <span>Painel Administrativo</span>
+
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a href="dashboard.html" class="active">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="quartos.html">
+                    <i class="fa-solid fa-bed"></i>
+                    Quartos
+                </a>
+
+                <a href="hospedagens.html">
+                    <i class="fa-solid fa-door-open"></i>
+                    Hospedagens
+                </a>
+
+                <a href="consumos.html">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    Consumos
+                </a>
+
+                <a href="historico.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Histórico
+                </a>
+
+                <a href="relatorios.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Relatórios
+                </a>
+                
+                <a href="usuarios.html">
+    <i class="fa-solid fa-users"></i>
+    Usuários
+</a>
+
+<a href="movimentacoes.html">
+    <i class="fa-solid fa-list-check"></i>
+    Movimentações
+</a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
+                </a>
+
+
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+    <button class="btn-logout" id="btnLogout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Sair
+
+    </button>
+
+</div>
+
+        </aside>
+
+        <!-- Conteúdo -->
+
+        <main class="content">
+
+            <!-- Topo -->
+
+            <header class="topbar">
+
+                <div>
+
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Bem-vindo ao sistema de gerenciamento da pousada.
+                    </p>
+
+                </div>
+
+            <button class="btn-primary" onclick="window.location.href='hospedagens.html'">
+                <i class="fa-solid fa-plus"></i>
+                Nova Hospedagem
+            </button>
+
+            </header>
+
+            <!-- Cards -->
+
+            <section class="cards">
+
+                <div class="card">
+
+                    <i class="fa-solid fa-bed"></i>
+
+                    <h3>Quartos Livres</h3>
+
+                    <h2>12</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-door-closed"></i>
+
+                    <h3>Quartos Ocupados</h3>
+
+                    <h2>4</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-sack-dollar"></i>
+
+                    <h3>Receita Hoje</h3>
+
+                    <h2>R$ 480,00</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <h3>Consumos Hoje</h3>
+
+                    <h2>18</h2>
+
+                </div>
+
+            </section>
+
+            <!-- Situação dos quartos -->
+
+            <section class="quartos-status">
+
+                <div class="section-title">
+
+                    <h2>Situação dos Quartos</h2>
+
+                    <button class="btn-secondary">
+
+                        Ver Todos
+
+                    </button>
+
+                </div>
+
+                <div class="quartos-grid">
+
+                    <!-- será preenchido via JS -->
+
+                </div>
+
+            </section>
+
+            <!-- Últimas hospedagens -->
+
+            <section class="ultimas-hospedagens">
+
+                <div class="section-title">
+
+                    <h2>Últimas Hospedagens</h2>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Quarto</th>
+
+                            <th>Entrada</th>
+
+                            <th>Saída</th>
+
+                            <th>Total</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tbodyHospedagens">
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

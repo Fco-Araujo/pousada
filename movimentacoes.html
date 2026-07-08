@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada Control - Movimentações</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/movimentacoes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-hotel"></i>
+
+            <div>
+                <h2>Pousada Control</h2>
+                <span>Painel Administrativo</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="quartos.html">
+                <i class="fa-solid fa-bed"></i>
+                Quartos
+            </a>
+
+            <a href="hospedagens.html">
+                <i class="fa-solid fa-door-open"></i>
+                Hospedagens
+            </a>
+
+            <a href="consumos.html">
+                <i class="fa-solid fa-bottle-water"></i>
+                Consumos
+            </a>
+
+            <a href="historico.html">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Histórico
+            </a>
+
+            <a href="relatorios.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Relatórios
+            </a>
+
+            <a href="usuarios.html">
+                <i class="fa-solid fa-users"></i>
+                Usuários
+            </a>
+
+            <a href="movimentacoes.html">
+                <i class="fa-solid fa-list-check"></i>
+                Movimentações
+            </a>
+
+            <a href="configuracoes.html">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" id="btnLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+            <div>
+                <h1>Movimentações</h1>
+                <p>Acompanhe as principais ações realizadas no sistema.</p>
+            </div>
+
+            <button class="btn-secondary" id="btnLimparMovimentacoes">
+                <i class="fa-solid fa-trash"></i>
+                Limpar registros
+            </button>
+        </header>
+
+        <section class="cards">
+            <div class="card">
+                <i class="fa-solid fa-list-check"></i>
+                <h3>Total de Movimentações</h3>
+                <h2 id="cardTotalMovimentacoes">0</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-door-open"></i>
+                <h3>Hospedagens</h3>
+                <h2 id="cardMovHospedagens">0</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h3>Consumos</h3>
+                <h2 id="cardMovConsumos">0</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-user"></i>
+                <h3>Usuários</h3>
+                <h2 id="cardMovUsuarios">0</h2>
+            </div>
+        </section>
+
+        <section class="page-actions movimentacoes-actions">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="buscarMovimentacao" placeholder="Pesquisar movimentação...">
+            </div>
+
+            <select id="filtroTipoMovimentacao">
+                <option value="">Todos os tipos</option>
+                <option value="hospedagem">Hospedagem</option>
+                <option value="consumo">Consumo</option>
+                <option value="quarto">Quarto</option>
+                <option value="usuario">Usuário</option>
+                <option value="sistema">Sistema</option>
+            </select>
+
+            <input type="date" id="filtroDataMovimentacao">
+        </section>
+
+        <div class="table-container movimentacoes-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data/Hora</th>
+                        <th>Usuário</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th>Detalhes</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbodyMovimentacoes"></tbody>
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/global.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/movimentacoes.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada Control - Usuários</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/usuarios.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-hotel"></i>
+
+            <div>
+                <h2>Pousada Control</h2>
+                <span>Painel Administrativo</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="dashboard.html">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="quartos.html">
+                <i class="fa-solid fa-bed"></i>
+                Quartos
+            </a>
+
+            <a href="hospedagens.html">
+                <i class="fa-solid fa-door-open"></i>
+                Hospedagens
+            </a>
+
+            <a href="consumos.html">
+                <i class="fa-solid fa-bottle-water"></i>
+                Consumos
+            </a>
+
+            <a href="historico.html">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                Histórico
+            </a>
+
+            <a href="relatorios.html">
+                <i class="fa-solid fa-chart-column"></i>
+                Relatórios
+            </a>
+
+            <a href="usuarios.html">
+                <i class="fa-solid fa-users"></i>
+                Usuários
+            </a>
+
+            <a href="movimentacoes.html">
+                <i class="fa-solid fa-list-check"></i>
+                Movimentações
+            </a>
+
+            <a href="configuracoes.html">
+                <i class="fa-solid fa-gear"></i>
+                Configurações
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-logout" id="btnLogout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
+            </button>
+        </div>
+
+    </aside>
+
+    <main class="content">
+
+        <header class="topbar">
+            <div>
+                <h1>Usuários</h1>
+                <p>Gerencie os usuários que acessam o sistema.</p>
+            </div>
+
+            <button class="btn-primary" id="btnNovoUsuario">
+                <i class="fa-solid fa-user-plus"></i>
+                Novo Usuário
+            </button>
+        </header>
+
+        <section class="cards">
+            <div class="card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Total de Usuários</h3>
+                <h2 id="cardTotalUsuarios">0</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-user-shield"></i>
+                <h3>Administradores</h3>
+                <h2 id="cardAdmins">0</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-user"></i>
+                <h3>Usuários Padrão</h3>
+                <h2 id="cardPadrao">0</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3>Usuários Ativos</h3>
+                <h2 id="cardAtivos">0</h2>
+            </div>
+        </section>
+
+        <section class="page-actions usuarios-actions">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="buscarUsuario" placeholder="Pesquisar usuário...">
+            </div>
+
+            <select id="filtroPerfilUsuario">
+                <option value="">Todos os perfis</option>
+                <option value="administrador">Administrador</option>
+                <option value="padrao">Padrão</option>
+            </select>
+
+            <select id="filtroStatusUsuario">
+                <option value="">Todos os status</option>
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+            </select>
+        </section>
+
+        <div class="table-container usuarios-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Login</th>
+                        <th>Perfil</th>
+                        <th>Status</th>
+                        <th>Último acesso</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tbodyUsuarios"></tbody>
+            </table>
+        </div>
+
+    </main>
+
+</div>
+
+<div class="modal" id="modalUsuario">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2 id="tituloModalUsuario">Novo Usuário</h2>
+
+            <button class="btn-icon" id="btnFecharModalUsuario">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <form id="formUsuario" class="form">
+
+            <input type="hidden" id="usuarioId">
+
+            <div class="form-group">
+                <label for="nomeUsuario">Nome</label>
+                <input type="text" id="nomeUsuario" placeholder="Ex: João Silva" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="loginUsuario">Login</label>
+                    <input type="text" id="loginUsuario" placeholder="Ex: joao" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="perfilUsuario">Perfil</label>
+                    <select id="perfilUsuario" required>
+                        <option value="padrao">Padrão</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="senhaUsuario">Senha</label>
+                    <input type="password" id="senhaUsuario" placeholder="Digite a senha">
+                </div>
+
+                <div class="form-group">
+                    <label for="statusUsuario">Status</label>
+                    <select id="statusUsuario" required>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="btnCancelarUsuario">
+                    Cancelar
+                </button>
+
+                <button type="submit" class="btn-primary">
+                    Salvar Usuário
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="js/global.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/usuarios.js"></script>
+
+</body>
+</html>

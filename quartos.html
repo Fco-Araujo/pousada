@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada Control - Quartos</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/quartos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-hotel"></i>
+
+                <div>
+                    <h2>Pousada Control</h2>
+                    <span>Painel Administrativo</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="quartos.html" class="active">
+                    <i class="fa-solid fa-bed"></i>
+                    Quartos
+                </a>
+
+                <a href="hospedagens.html">
+                    <i class="fa-solid fa-door-open"></i>
+                    Hospedagens
+                </a>
+
+                <a href="consumos.html">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    Consumos
+                </a>
+
+                <a href="historico.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Histórico
+                </a>
+
+                <a href="relatorios.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Relatórios
+                </a>
+                
+                <a href="usuarios.html">
+    <i class="fa-solid fa-users"></i>
+    Usuários
+</a>
+
+<a href="movimentacoes.html">
+    <i class="fa-solid fa-list-check"></i>
+    Movimentações
+</a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
+                </a>
+
+
+            </nav>
+
+                <div class="sidebar-footer">
+
+    <button class="btn-logout" id="btnLogout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Sair
+
+    </button>
+
+</div>
+
+        </aside>
+
+        <main class="content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Quartos</h1>
+                    <p>Cadastre, edite e acompanhe a situação dos quartos.</p>
+                </div>
+
+                <button class="btn-primary" id="btnAbrirModalQuarto">
+                    <i class="fa-solid fa-plus"></i>
+                    Novo Quarto
+                </button>
+            </header>
+
+            <section class="page-actions">
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="buscarQuarto" placeholder="Pesquisar quarto ou apartamento...">
+                </div>
+
+                <select id="filtroStatus">
+                    <option value="">Todos os status</option>
+                    <option value="livre">Livre</option>
+                    <option value="ocupado">Ocupado</option>
+                    <option value="limpeza">Em limpeza</option>
+                    <option value="manutencao">Manutenção</option>
+                </select>
+
+            </section>
+
+            <section class="quartos-grid" id="listaQuartos">
+
+                <!-- Cards dos quartos serão carregados via JS -->
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Modal Novo/Editar Quarto -->
+
+    <div class="modal" id="modalQuarto">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 id="tituloModalQuarto">Novo Quarto</h2>
+
+                <button class="btn-icon" id="btnFecharModalQuarto">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="formQuarto" class="form">
+
+                <input type="hidden" id="quartoId">
+
+                <div class="form-group">
+                    <label for="nomeQuarto">Nome do quarto</label>
+                    <input type="text" id="nomeQuarto" placeholder="Ex: Apartamento 03" required>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="numeroQuarto">Número</label>
+                        <input type="number" id="numeroQuarto" placeholder="Ex: 03" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoQuarto">Tipo</label>
+                        <select id="tipoQuarto" required>
+                            <option value="">Selecione</option>
+                            <option value="simples">Simples</option>
+                            <option value="casal">Casal</option>
+                            <option value="suite">Suíte</option>
+                            <option value="familia">Família</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="valorHora">Valor por hora</label>
+                        <input type="number" id="valorHora" placeholder="Ex: 25" min="0" step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="statusQuarto">Status</label>
+                        <select id="statusQuarto" required>
+                            <option value="livre">Livre</option>
+                            <option value="ocupado">Ocupado</option>
+                            <option value="limpeza">Em limpeza</option>
+                            <option value="manutencao">Manutenção</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="observacoesQuarto">Observações</label>
+                    <textarea id="observacoesQuarto" rows="3" placeholder="Ex: Ar-condicionado, frigobar, cama casal..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelarQuarto">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn-primary">
+                        Salvar Quarto
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/quartos.js"></script>
+
+</body>
+
+</html>

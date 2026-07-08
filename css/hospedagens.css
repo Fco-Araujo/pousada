@@ -1,0 +1,199 @@
+#listaHospedagens{
+    padding-bottom:30px;
+}
+
+.hospedagens-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    gap:24px;
+}
+
+.hospedagem-card{
+    position:relative;
+    overflow:hidden;
+    background:#fff;
+    border-radius:20px;
+    padding:26px 22px 24px;
+    box-shadow:var(--shadow);
+    border:1px solid #eef2f7;
+}
+
+.hospedagem-card::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:6px;
+    height:100%;
+    background:var(--primary);
+}
+
+.hospedagem-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+    margin-bottom:26px;
+}
+
+.hospedagem-header h3{
+    font-size:21px;
+    color:var(--text);
+    margin-bottom:8px;
+}
+
+.hospedagem-header p{
+    color:var(--text-light);
+    font-weight:500;
+}
+
+.hospedagem-info{
+    display:grid;
+    gap:16px;
+}
+
+.hospedagem-info p{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--text-light);
+    font-size:15px;
+    gap:20px;
+}
+
+.hospedagem-info strong{
+    color:var(--text);
+    font-weight:700;
+    text-align:right;
+}
+
+.total-hospedagem{
+    margin-top:24px;
+    padding:20px 18px;
+    border-radius:14px;
+    background:#eef4ff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.total-hospedagem span{
+    color:var(--text-light);
+    font-size:16px;
+}
+
+.total-hospedagem h2{
+    color:var(--primary);
+    font-size:30px;
+    white-space:nowrap;
+}
+
+.resumo-finalizacao{
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px;
+    margin-top:20px;
+    margin-bottom:0;
+}
+
+.resumo-finalizacao h3{
+    margin-bottom:14px;
+    font-size:17px;
+}
+
+.resumo-finalizacao p{
+    color:var(--text-light);
+}
+
+.resumo-item{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:8px 0;
+}
+
+.resumo-item span{
+    color:var(--text-light);
+}
+
+.resumo-item strong{
+    color:var(--text);
+}
+
+.resumo-total{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.resumo-total h2{
+    color:var(--primary);
+    font-size:32px;
+}
+
+.hospedagem-actions{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.hospedagem-actions button{
+    width:100%;
+    min-height:44px;
+    padding:11px 14px;
+    font-size:14px;
+    white-space:nowrap;
+}
+
+.hospedagem-actions .btn-danger{
+    grid-column:1 / -1;
+}
+
+#filtroHospedagem{
+    max-width:240px;
+}
+
+@media(max-width:1300px){
+    .hospedagens-grid{
+        grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    }
+
+    .hospedagem-actions{
+        grid-template-columns:1fr;
+    }
+
+    .hospedagem-actions .btn-danger{
+        grid-column:auto;
+    }
+}
+
+@media(max-width:768px){
+    .hospedagens-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hospedagem-card{
+        padding:24px 18px;
+    }
+
+    .hospedagem-info p{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:5px;
+    }
+
+    .hospedagem-info strong{
+        text-align:left;
+    }
+
+    .total-hospedagem{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}

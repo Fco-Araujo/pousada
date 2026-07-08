@@ -1,0 +1,58 @@
+.quartos-status,
+.ultimas-hospedagens{
+    padding-bottom:30px;
+}
+
+.quartos-status .section-title,
+.ultimas-hospedagens .section-title{
+    margin-top:10px;
+}
+
+.quartos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.quarto-dashboard-card{
+    background:#fff;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    border:1px solid #eef2f7;
+    transition:.25s;
+}
+
+.quarto-dashboard-card:hover{
+    transform:translateY(-4px);
+}
+
+.quarto-dashboard-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.quarto-dashboard-header h3{
+    font-size:18px;
+}
+
+.quarto-dashboard-info{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    color:var(--text-light);
+    font-size:14px;
+}
+
+.quarto-dashboard-actions{
+    margin-top:18px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.ultimas-hospedagens table{
+    background:#fff;
+}

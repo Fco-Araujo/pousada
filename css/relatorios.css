@@ -1,0 +1,134 @@
+.topbar-actions{
+    display:flex;
+    gap:12px;
+}
+
+.page-actions{
+    margin-bottom:25px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:22px 35px;
+}
+
+.filter-group{
+    min-width:200px;
+}
+
+.filter-group label{
+    font-size:13px;
+    color:var(--text-light);
+}
+
+.card-info{
+    display:block;
+    margin-top:12px;
+    font-size:13px;
+    color:var(--text-light);
+}
+
+.card-info.positivo{
+    color:var(--success);
+    font-weight:600;
+}
+
+.grafico-principal{
+    padding-bottom:0;
+}
+
+.large-card{
+    min-height:390px;
+}
+
+.section-title p{
+    color:var(--text-light);
+    margin-top:5px;
+}
+
+.chart-container{
+    height:280px;
+    border:2px dashed #dbe4f0;
+    border-radius:18px;
+    background:#fafcff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:#94a3b8;
+    font-weight:600;
+}
+
+.chart-container i{
+    font-size:42px;
+}
+
+.relatorios-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    gap:24px;
+    padding-bottom:30px;
+}
+
+.report-card{
+    background:#fff;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:24px;
+    border:1px solid #eef2f7;
+    min-height:320px;
+}
+
+.chart-small{
+    height:180px;
+    border-radius:16px;
+    background:#f8fafc;
+    border:1px dashed #dbe4f0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    color:#94a3b8;
+    margin-bottom:18px;
+}
+
+.chart-small i{
+    font-size:34px;
+}
+
+.report-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.report-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 16px;
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:12px;
+}
+
+.report-item strong{
+    color:var(--primary);
+}
+
+.ranking .report-item{
+    position:relative;
+    overflow:hidden;
+}
+
+.ranking .report-item::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:5px;
+    background:var(--primary);
+}

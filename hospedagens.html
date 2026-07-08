@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada Control - Hospedagens</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/hospedagens.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-hotel"></i>
+
+                <div>
+                    <h2>Pousada Control</h2>
+                    <span>Painel Administrativo</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="quartos.html">
+                    <i class="fa-solid fa-bed"></i>
+                    Quartos
+                </a>
+
+                <a href="hospedagens.html" class="active">
+                    <i class="fa-solid fa-door-open"></i>
+                    Hospedagens
+                </a>
+
+                <a href="consumos.html">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    Consumos
+                </a>
+
+                <a href="historico.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Histórico
+                </a>
+
+                <a href="relatorios.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Relatórios
+                </a>
+
+                <a href="usuarios.html">
+    <i class="fa-solid fa-users"></i>
+    Usuários
+</a>
+
+<a href="movimentacoes.html">
+    <i class="fa-solid fa-list-check"></i>
+    Movimentações
+</a>
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
+                </a>
+
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+    <button class="btn-logout" id="btnLogout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Sair
+
+    </button>
+
+</div>
+
+        </aside>
+
+        <main class="content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Hospedagens</h1>
+                    <p>Controle entradas, saídas, consumo e valores dos quartos.</p>
+                </div>
+
+                <button class="btn-primary" id="btnAbrirNovaHospedagem">
+                    <i class="fa-solid fa-plus"></i>
+                    Nova Hospedagem
+                </button>
+            </header>
+
+            <section class="cards">
+
+                <div class="card">
+                    <i class="fa-solid fa-door-open"></i>
+                    <h3>Em aberto</h3>
+                    <h2 id="totalAbertas">0</h2>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-clock"></i>
+                    <h3>Maior permanência</h3>
+                    <h2 id="maiorPermanencia">0h</h2>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-money-bill-wave"></i>
+                    <h3>Total parcial</h3>
+                    <h2 id="totalParcial">R$ 0,00</h2>
+                </div>
+
+            </section>
+
+            <section class="page-actions">
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="buscarHospedagem" placeholder="Pesquisar por quarto...">
+                </div>
+
+                <select id="filtroHospedagem">
+                    <option value="">Todas</option>
+                    <option value="aberta">Em aberto</option>
+                    <option value="finalizada">Finalizadas</option>
+                </select>
+
+            </section>
+
+            <section class="hospedagens-grid" id="listaHospedagens">
+
+                <!-- Hospedagens em aberto serão carregadas via JS -->
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Modal Nova Hospedagem -->
+
+    <div class="modal" id="modalNovaHospedagem">
+
+        <div class="modal-content large">
+
+            <div class="modal-header">
+                <h2>Nova Hospedagem</h2>
+
+                <button class="btn-icon" id="btnFecharNovaHospedagem">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="formNovaHospedagem" class="form">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="quartoHospedagem">Quarto</label>
+                        <select id="quartoHospedagem" required>
+                            <option value="">Selecione um quarto livre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="valorHospedagem">Valor da hospedagem</label>
+                        <input type="number" id="valorHospedagem" min="0" step="0.01" required>
+                        <small>O valor será preenchido automaticamente pelo cadastro do quarto, mas pode ser alterado.</small>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="dataEntrada">Data de entrada</label>
+                        <input type="date" id="dataEntrada" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horaEntrada">Hora de entrada</label>
+                        <input type="time" id="horaEntrada" required>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="observacoesHospedagem">Observações</label>
+                    <textarea id="observacoesHospedagem" rows="3" placeholder="Ex: Cliente pagará no checkout..."></textarea>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelarNovaHospedagem">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn-primary">
+                        Iniciar Hospedagem
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Modal Adicionar Consumo -->
+
+    <div class="modal" id="modalConsumoHospedagem">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Adicionar Consumo</h2>
+
+                <button class="btn-icon" id="btnFecharConsumoHospedagem">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="formConsumoHospedagem" class="form">
+
+                <input type="hidden" id="hospedagemConsumoId">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="produtoConsumo">Produto</label>
+                        <select id="produtoConsumo" required>
+                            <option value="">Selecione o produto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantidadeConsumo">Quantidade</label>
+                        <input type="number" id="quantidadeConsumo" min="1" value="1" required>
+                    </div>
+
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelarConsumoHospedagem">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn-primary">
+                        Adicionar Consumo
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Modal Finalizar Hospedagem -->
+
+    <div class="modal" id="modalFinalizarHospedagem">
+
+        <div class="modal-content large">
+
+            <div class="modal-header">
+                <h2>Finalizar Hospedagem</h2>
+
+                <button class="btn-icon" id="btnFecharFinalizarHospedagem">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="formFinalizarHospedagem" class="form">
+
+                <input type="hidden" id="hospedagemFinalizarId">
+
+                <div class="resumo-finalizacao" id="resumoFinalizacao">
+                    <!-- Resumo preenchido via JS -->
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="dataSaida">Data de saída</label>
+                        <input type="date" id="dataSaida" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horaSaida">Hora de saída</label>
+                        <input type="time" id="horaSaida" required>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="formaPagamento">Forma de pagamento</label>
+                        <select id="formaPagamento" required>
+                            <option value="">Selecione</option>
+                            <option value="pix">Pix</option>
+                            <option value="dinheiro">Dinheiro</option>
+                            <option value="cartao_credito">Cartão de crédito</option>
+                            <option value="cartao_debito">Cartão de débito</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descontoHospedagem">Desconto</label>
+                        <input type="number" id="descontoHospedagem" min="0" step="0.01" value="0">
+                    </div>
+
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="btnCancelarFinalizarHospedagem">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="btn-primary">
+                        Finalizar e Gerar Recibo
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/hospedagens.js"></script>
+
+</body>
+
+</html>

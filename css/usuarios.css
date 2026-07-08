@@ -1,0 +1,221 @@
+/* ==================================================
+   USUÁRIOS
+================================================== */
+
+.usuarios-actions{
+    margin:28px 35px 22px;
+    display:flex;
+    gap:16px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.usuarios-actions .search-box{
+    flex:1;
+    min-width:320px;
+}
+
+.usuarios-actions select{
+    width:220px;
+}
+
+/* ==================================================
+   TABELA
+================================================== */
+
+.usuarios-table{
+    margin:0 35px 35px;
+    background:#fff;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    border:1px solid #eef2f7;
+    overflow:hidden;
+}
+
+.usuarios-table table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.usuarios-table thead{
+    background:#f8fafc;
+}
+
+.usuarios-table th{
+    padding:18px 20px;
+    text-align:left;
+    font-size:14px;
+    color:var(--text-light);
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.usuarios-table td{
+    padding:18px 20px;
+    border-top:1px solid #f1f5f9;
+    vertical-align:middle;
+}
+
+.usuarios-table tbody tr{
+    transition:.25s;
+}
+
+.usuarios-table tbody tr:hover{
+    background:#f8fafc;
+}
+
+/* ==================================================
+   USUÁRIO
+================================================== */
+
+.usuario-info{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.usuario-avatar{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#3b82f6,#2563eb);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:700;
+}
+
+.usuario-info h4{
+    font-size:15px;
+    margin-bottom:3px;
+}
+
+.usuario-info span{
+    font-size:13px;
+    color:var(--text-light);
+}
+
+/* ==================================================
+   PERFIL
+================================================== */
+
+.badge-admin{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 12px;
+    border-radius:30px;
+    background:#dbeafe;
+    color:#2563eb;
+    font-size:13px;
+    font-weight:600;
+}
+
+.badge-user{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 12px;
+    border-radius:30px;
+    background:#ecfdf5;
+    color:#059669;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* ==================================================
+   STATUS
+================================================== */
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:95px;
+}
+
+/* ==================================================
+   AÇÕES
+================================================== */
+
+.usuario-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+}
+
+.usuario-actions .btn-icon{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    background:#f3f4f6;
+    transition:.25s;
+}
+
+.usuario-actions .btn-icon:hover{
+    background:#2563eb;
+    color:#fff;
+}
+
+/* ==================================================
+   MODAL
+================================================== */
+
+#modalUsuario .modal-content{
+    max-width:700px;
+}
+
+#modalUsuario .form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+#modalUsuario .modal-actions{
+    margin-top:24px;
+    display:flex;
+    justify-content:flex-end;
+    gap:12px;
+}
+
+/* ==================================================
+   RESPONSIVO
+================================================== */
+
+@media(max-width:1000px){
+
+    .usuarios-actions{
+        margin:24px;
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .usuarios-actions .search-box{
+        min-width:100%;
+    }
+
+    .usuarios-actions select{
+        width:100%;
+    }
+
+    .usuarios-table{
+        margin:0 24px 24px;
+        overflow-x:auto;
+    }
+
+    .usuarios-table table{
+        min-width:900px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    #modalUsuario .form-row{
+        grid-template-columns:1fr;
+    }
+
+}

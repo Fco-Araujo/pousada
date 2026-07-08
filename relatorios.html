@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pousada Control - Relatórios</title>
+
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/relatorios.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+        
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-hotel"></i>
+
+                <div>
+                    <h2>Pousada Control</h2>
+                    <span>Painel Administrativo</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+
+                <a href="quartos.html">
+                    <i class="fa-solid fa-bed"></i>
+                    Quartos
+                </a>
+
+                <a href="hospedagens.html">
+                    <i class="fa-solid fa-door-open"></i>
+                    Hospedagens
+                </a>
+
+                <a href="consumos.html">
+                    <i class="fa-solid fa-bottle-water"></i>
+                    Consumos
+                </a>
+
+                <a href="historico.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Histórico
+                </a>
+
+                <a href="relatorios.html" class="active">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Relatórios
+                </a>
+
+                <a href="configuracoes.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Configurações
+                </a>
+
+                            <a href="usuarios.html">
+                <i class="fa-solid fa-users"></i>
+                Usuários
+            </a>
+
+            <a href="movimentacoes.html">
+                <i class="fa-solid fa-list-check"></i>
+                Movimentações
+            </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+
+    <button class="btn-logout" id="btnLogout">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        Sair
+
+    </button>
+
+</div>
+
+        </aside>
+
+        <main class="content">
+
+            <header class="topbar">
+                <div>
+                    <h1>Relatórios</h1>
+                    <p>Acompanhe faturamento, hospedagens, consumos e desempenho da pousada.</p>
+                </div>
+
+                <div class="topbar-actions">
+                    <button class="btn-secondary" id="btnExportarExcel">
+                        <i class="fa-solid fa-file-excel"></i>
+                        Excel
+                    </button>
+
+                    <button class="btn-primary" id="btnExportarPDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        PDF
+                    </button>
+                </div>
+            </header>
+
+            <section class="page-actions">
+
+                <div class="filter-group">
+                    <label>Data inicial</label>
+                    <input type="date" id="dataInicioRelatorio">
+                </div>
+
+                <div class="filter-group">
+                    <label>Data final</label>
+                    <input type="date" id="dataFimRelatorio">
+                </div>
+
+                <div class="filter-group">
+                    <label>Forma de pagamento</label>
+                    <select id="filtroPagamentoRelatorio">
+                        <option value="">Todas</option>
+                        <option value="pix">Pix</option>
+                        <option value="dinheiro">Dinheiro</option>
+                        <option value="cartao_credito">Cartão de crédito</option>
+                        <option value="cartao_debito">Cartão de débito</option>
+                    </select>
+                </div>
+
+                <button class="btn-primary" id="btnFiltrarRelatorio">
+                    <i class="fa-solid fa-filter"></i>
+                    Filtrar
+                </button>
+
+                <button class="btn-secondary" id="btnLimparRelatorio">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Limpar
+                </button>
+
+            </section>
+
+            <section class="cards">
+
+                <div class="card">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <h3>Receita Total</h3>
+                    <h2 id="relatorioReceitaTotal">R$ 0,00</h2>
+                    <span class="card-info positivo">+0% no período</span>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-door-open"></i>
+                    <h3>Hospedagens</h3>
+                    <h2 id="relatorioQtdHospedagens">0</h2>
+                    <span class="card-info">Entradas finalizadas</span>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <h3>Consumos</h3>
+                    <h2 id="relatorioConsumos">R$ 0,00</h2>
+                    <span class="card-info">Produtos vendidos</span>
+                </div>
+
+                <div class="card">
+                    <i class="fa-solid fa-ticket"></i>
+                    <h3>Ticket Médio</h3>
+                    <h2 id="relatorioTicketMedio">R$ 0,00</h2>
+                    <span class="card-info">Média por hospedagem</span>
+                </div>
+
+            </section>
+
+            <section class="grafico-principal">
+
+                <div class="report-card large-card">
+
+                    <div class="section-title">
+                        <div>
+                            <h2>Receita por Dia</h2>
+                            <p>Evolução do faturamento no período selecionado.</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-container" id="graficoReceitaDia">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>Gráfico de receita será carregado aqui</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="relatorios-grid">
+
+                <div class="report-card">
+                    <div class="section-title">
+                        <h2>Forma de Pagamento</h2>
+                    </div>
+
+                    <div class="chart-small" id="graficoPagamento">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Gráfico por pagamento</span>
+                    </div>
+
+                    <div class="report-list" id="listaPagamento"></div>
+                </div>
+
+                <div class="report-card">
+                    <div class="section-title">
+                        <h2>Quartos Mais Utilizados</h2>
+                    </div>
+
+                    <div class="report-list ranking" id="listaQuartosMaisUsados"></div>
+                </div>
+
+                <div class="report-card">
+                    <div class="section-title">
+                        <h2>Consumos Mais Vendidos</h2>
+                    </div>
+
+                    <div class="report-list ranking" id="listaConsumosMaisVendidos"></div>
+                </div>
+
+                <div class="report-card">
+                    <div class="section-title">
+                        <h2>Resumo do Período</h2>
+                    </div>
+
+                    <div class="report-list" id="resumoPeriodo"></div>
+                </div>
+
+            </section>
+
+        </main>
+
+        
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/relatorios.js"></script>
+
+</body>
+
+</html>

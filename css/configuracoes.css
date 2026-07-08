@@ -1,0 +1,22 @@
+.settings-grid{
+    padding-bottom:30px;
+}
+
+.settings-card{
+    min-height:420px;
+}
+
+.settings-card form{
+    margin-top:20px;
+}
+
+.settings-card .btn-primary{
+    margin-top:10px;
+    width:max-content;
+}
+
+@media(max-width:768px){
+    .settings-card .btn-primary{
+        width:100%;
+    }
+}

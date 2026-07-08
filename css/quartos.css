@@ -1,0 +1,50 @@
+#listaQuartos{
+    padding-bottom:30px;
+}
+
+.quarto-card{
+    position:relative;
+}
+
+.quarto-card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:16px;
+}
+
+.quarto-card-header h3{
+    font-size:19px;
+}
+
+.quarto-info{
+    display:grid;
+    gap:8px;
+    margin-top:12px;
+}
+
+.quarto-info p{
+    font-size:14px;
+    color:var(--text-light);
+}
+
+.quarto-info strong{
+    color:var(--text);
+}
+
+.quarto-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.quarto-actions button{
+    flex:1;
+    min-width:120px;
+}
+
+#modalQuarto{
+    padding:20px;
+}
